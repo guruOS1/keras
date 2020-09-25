@@ -14,4 +14,6 @@ RUN apt-get -y update && \
 
 RUN pip3 install pydot-ng keras
 
+RUN apt-get install -y ipython3 && apt-get clean
+
 CMD ["python3"]
