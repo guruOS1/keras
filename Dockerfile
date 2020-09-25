@@ -14,6 +14,10 @@ RUN apt-get -y update && \
 
 RUN pip3 install pydot-ng keras
 
-RUN apt-get install -y ipython3 && apt-get clean
+RUN apt-get install -y jupyter-notebook && apt-get clean
 
-CMD ["ipython3"]
+EXPOSE 8888
+
+WORKDIR /data
+
+CMD jupyter-notebook --port=8888 --ip=0.0.0.0 --allow-root
