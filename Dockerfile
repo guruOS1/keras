@@ -14,10 +14,12 @@ RUN apt-get -y update && \
 
 RUN pip3 install pydot-ng keras
 
-RUN apt-get install -y jupyter-notebook && apt-get clean
+RUN apt-get install -y jupyter-notebook git && apt-get clean
 
 EXPOSE 8888
 
 WORKDIR /data
+
+RUN git clone --depth 1 https://github.com/fchollet/deep-learning-with-python-notebooks.git
 
 CMD jupyter-notebook --port=8888 --ip=0.0.0.0 --allow-root
